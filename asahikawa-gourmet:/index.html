@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>旭川グルメ｜旭川のお店探しをもっと楽しく</title>
+
+    <meta name="description"
+          content="旭川市の飲食店を探せるiPhoneアプリ「旭川グルメ」。ジャンルや条件からお店を検索したり、ルーレットで行きたいお店を決めたりできます。">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Helvetica Neue",
+                "Hiragino Kaku Gothic ProN",
+                "Yu Gothic",
+                sans-serif;
+
+            color: #222;
+            background: #fafafa;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            background: white;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .back-link {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px 50px;
+            background: white;
+        }
+
+        .hero h1 {
+            margin: 0 0 16px;
+            font-size: clamp(32px, 6vw, 52px);
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            margin: 0 auto 30px;
+            max-width: 650px;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 999px;
+
+            background: #222;
+            color: white;
+
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .app-store-button:hover {
+            opacity: 0.8;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 70px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            margin: 0 0 10px;
+            font-size: 30px;
+        }
+
+        .section-title p {
+            margin: 0;
+            color: #777;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            background: white;
+            border-radius: 20px;
+            padding: 28px;
+
+            border: 1px solid #eee;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .feature h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .feature p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .screenshots img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 22px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.10);
+        }
+
+        .cta {
+            background: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta h2 {
+            margin: 0 0 12px;
+            font-size: 30px;
+        }
+
+        .cta p {
+            margin: 0 auto 25px;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #888;
+            font-size: 13px;
+            border-top: 1px solid #eee;
+            background: white;
+        }
+
+        @media (max-width: 800px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshots {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .hero {
+                padding-top: 50px;
+            }
+
+            .screenshots {
+                grid-template-columns: 1fr;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .section {
+                padding: 55px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">Ren's Apps</div>
+
+        <a class="back-link"
+           href="../">
+            アプリ一覧
+        </a>
+    </div>
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <h1>旭川グルメ</h1>
+
+        <p>
+            旭川のお店探しを、もっと簡単に、もっと楽しく。<br>
+            気になるお店を探したり、ルーレットで行き先を決めたりできる
+            グルメアプリです。
+        </p>
+
+        <a
+            class="app-store-button"
+            href="YOUR_APP_STORE_URL"
+            target="_blank"
+            rel="noopener"
+        >
+            App Storeで見る
+        </a>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>旭川のお店を探そう</h2>
+
+            <p>
+                その日の気分に合ったお店を見つけられます。
+            </p>
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">🔎</div>
+
+                <h3>お店を探す</h3>
+
+                <p>
+                    ジャンルや条件から、
+                    旭川市内のお店を探せます。
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <div class="feature-icon">🎲</div>
+
+                <h3>お店ルーレット</h3>
+
+                <p>
+                    「今日はどこに行こう？」
+                    そんなときはルーレットにおまかせ。
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <div class="feature-icon">🏆</div>
+
+                <h3>スタンプラリー</h3>
+
+                <p>
+                    旭川のお店を巡りながら、
+                    楽しくスタンプを集められます。
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>アプリ画面</h2>
+
+            <p>
+                シンプルで使いやすいインターフェース。
+            </p>
+        </div>
+
+
+        <div class="screenshots">
+
+            <img
+                src="screenshot1.png"
+                alt="旭川グルメ アプリのお店一覧画面"
+            >
+
+            <img
+                src="screenshot2.png"
+                alt="旭川グルメ アプリのお店検索画面"
+            >
+
+            <img
+                src="screenshot3.png"
+                alt="旭川グルメ アプリのルーレット画面"
+            >
+
+            <img
+                src="screenshot4.png"
+                alt="旭川グルメ アプリの店舗詳細画面"
+            >
+
+        </div>
+
+    </section>
+
+
+    <section class="cta">
+
+        <h2>旭川のお店を探してみよう</h2>
+
+        <p>
+            「今日はどこで食べよう？」を、もっと楽しく。
+        </p>
+
+        <a
+            class="app-store-button"
+            href="YOUR_APP_STORE_URL"
+            target="_blank"
+            rel="noopener"
+        >
+            App Storeでダウンロード
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 Ren's Apps
+</footer>
+
+</body>
+</html>
