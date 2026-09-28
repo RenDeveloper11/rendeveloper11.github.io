@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>名言フィード｜心に響く言葉を、いつでも</title>
+
+    <meta name="description"
+          content="名言フィードは、偉人・アニメ・マンガなど、さまざまな名言を気軽に楽しめるiPhoneアプリです。心に響く言葉との出会いを。">
+
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Helvetica Neue",
+                "Hiragino Kaku Gothic ProN",
+                "Yu Gothic",
+                sans-serif;
+            color: #222;
+            background: #f7f7f8;
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .back-link {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .hero {
+            background: #fff;
+            text-align: center;
+            padding: 75px 20px 65px;
+        }
+
+        .hero h1 {
+            margin: 0 0 16px;
+            font-size: clamp(32px, 6vw, 52px);
+            letter-spacing: -0.03em;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+
+        .app-store-button {
+            display: inline-block;
+            padding: 13px 26px;
+            border-radius: 999px;
+            background: #222;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            margin: 0 0 10px;
+            font-size: 30px;
+        }
+
+        .section-title p {
+            margin: 0;
+            color: #777;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 20px;
+            padding: 28px;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            margin: 0 0 8px;
+            font-size: 19px;
+        }
+
+        .feature p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* 縦長スクリーンショット3枚 */
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            align-items: start;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .screenshot-card {
+            background: #fff;
+            padding: 12px;
+            border-radius: 22px;
+            border: 1px solid #eee;
+        }
+
+        .screenshots img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 14px;
+        }
+
+        .cta {
+            background: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta h2 {
+            margin: 0 0 12px;
+            font-size: 30px;
+        }
+
+        .cta p {
+            color: #666;
+            margin: 0 auto 25px;
+        }
+
+        footer {
+            background: #fff;
+            border-top: 1px solid #eee;
+            text-align: center;
+            padding: 30px 20px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .screenshots {
+                grid-template-columns: 1fr;
+                max-width: 340px;
+            }
+
+            .section {
+                padding: 55px 20px;
+            }
+
+            .hero {
+                padding-top: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">Ren's Apps</div>
+
+        <a class="back-link" href="../">
+            アプリ一覧
+        </a>
+    </div>
+</header>
+
+
+<main>
+
+    <section class="hero">
+
+        <h1>名言フィード</h1>
+
+        <p>
+            偉人・アニメ・マンガなど、さまざまな名言を収録。<br>
+            たった1タップで、心に響く言葉と出会えます。
+        </p>
+
+        <a
+            class="app-store-button"
+            href="https://apps.apple.com/jp/app/%E5%90%8D%E8%A8%80%E3%83%95%E3%82%A3%E3%83%BC%E3%83%89/id6462957820"
+            target="_blank"
+            rel="noopener"
+        >
+            App Storeで見る
+        </a>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>心に響く言葉を、もっと身近に</h2>
+
+            <p>
+                気軽に名言を楽しめるシンプルなアプリです。
+            </p>
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+                <div class="feature-icon">💬</div>
+
+                <h3>1タップで名言</h3>
+
+                <p>
+                    画面をタップするだけで、
+                    新しい名言を楽しめます。
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <div class="feature-icon">📚</div>
+
+                <h3>さまざまな名言を収録</h3>
+
+                <p>
+                    偉人・アニメ・マンガなど、
+                    幅広いジャンルの言葉を収録しています。
+                </p>
+            </div>
+
+
+            <div class="feature">
+                <div class="feature-icon">🔔</div>
+
+                <h3>お気に入りの言葉を</h3>
+
+                <p>
+                    心に響いた名言をお気に入りに保存。
+                    通知でも名言を受け取れます。
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="section">
+
+        <div class="section-title">
+            <h2>アプリ画面</h2>
+
+            <p>
+                シンプルな操作で、名言を楽しめます。
+            </p>
+        </div>
+
+
+        <div class="screenshots">
+
+            <div class="screenshot-card">
+                <img
+                    src="screenshot1.png"
+                    alt="名言フィードの名言表示画面"
+                >
+            </div>
+
+            <div class="screenshot-card">
+                <img
+                    src="screenshot2.png"
+                    alt="名言フィードの名言一覧画面"
+                >
+            </div>
+
+            <div class="screenshot-card">
+                <img
+                    src="screenshot3.png"
+                    alt="名言フィードのお気に入り画面"
+                >
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="cta">
+
+        <h2>心に響く言葉と出会おう</h2>
+
+        <p>
+            今日のあなたに響く名言を、見つけてみませんか。
+        </p>
+
+        <a
+            class="app-store-button"
+            href="https://apps.apple.com/jp/app/%E5%90%8D%E8%A8%80%E3%83%95%E3%82%A3%E3%83%BC%E3%83%89/id6462957820"
+            target="_blank"
+            rel="noopener"
+        >
+            App Storeでダウンロード
+        </a>
+
+    </section>
+
+</main>
+
+
+<footer>
+    © 2026 Ren's Apps
+</footer>
+
+</body>
+</html>
