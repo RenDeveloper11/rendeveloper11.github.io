@@ -1,504 +1,385 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ren's Apps</title>
+<meta name="description" content="Renが開発しているiOSアプリをご紹介します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #14112b;
+  --bg: #f3f0ff;
+  --card: #ffffff;
+  --pink: #ff4d8d;
+  --yellow: #ffd84a;
+  --blue: #3d6bff;
+  --mint: #2ee6a6;
+  --orange: #ff8a3d;
+  --purple: #9b5cff;
+  --border: 3px solid var(--ink);
+  --font-display: "Dela Gothic One", "Hiragino Sans", "Hiragino Kaku Gothic ProN", sans-serif;
+  --font-body: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--ink);
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(20,17,43,.13) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 4px solid var(--blue); outline-offset: 3px; }
 
-    <title>Ren's Apps</title>
+/* Header */
+header { position: sticky; top: 12px; z-index: 20; padding: 0 16px; }
+.header-inner {
+  max-width: 1000px; margin: 0 auto; padding: 10px 14px 10px 22px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--card); border: var(--border); border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.logo { font-family: var(--font-display); font-size: 20px; }
+.logo span { color: var(--pink); }
+nav { display: flex; gap: 8px; }
+nav a {
+  font-weight: 900; font-size: 14px; padding: 6px 16px; border-radius: 999px;
+  border: 2px solid transparent; transition: background .2s, border-color .2s, transform .2s;
+}
+nav a:hover { background: var(--yellow); border-color: var(--ink); transform: rotate(-3deg); }
 
-    <meta name="description" content="Renが開発しているiOSアプリをご紹介します。">
+/* Hero */
+.hero { position: relative; text-align: center; padding: 90px 20px 70px; }
+.hero h1 {
+  margin: 0; font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(48px, 11vw, 120px); line-height: 1.05; letter-spacing: -0.02em;
+}
+.hero h1 .ch {
+  display: inline-block; color: var(--ink);
+  text-shadow: 4px 4px 0 var(--c);
+  animation: pop .7s cubic-bezier(.34, 1.8, .5, 1) both;
+  animation-delay: calc(var(--i) * 60ms);
+  transition: transform .2s;
+}
+.hero h1 .ch:hover { transform: translateY(-10px) rotate(-6deg); }
+@keyframes pop { from { opacity: 0; transform: translateY(50px) scale(.3) rotate(-20deg); } }
+.hero p {
+  margin: 28px auto 0; max-width: 560px; font-size: 18px; font-weight: 700;
+  animation: fadeup .6s .8s both;
+}
+@keyframes fadeup { from { opacity: 0; transform: translateY(16px); } }
+.badge {
+  display: inline-block; margin-top: 26px; padding: 8px 20px; font-weight: 900; font-size: 15px;
+  background: var(--yellow); border: var(--border); border-radius: 999px; box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-3deg); animation: fadeup .6s 1s both;
+}
+.sticker {
+  position: absolute; font-size: clamp(34px, 6vw, 64px); user-select: none; pointer-events: none;
+  animation: float 4s ease-in-out infinite; animation-delay: var(--d);
+}
+.sticker > span { display: block; transition: transform .15s ease-out; }
+@keyframes float { 50% { translate: 0 -16px; rotate: 8deg; } }
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+/* Marquee */
+.marquee {
+  background: var(--ink); color: var(--yellow); border-block: var(--border);
+  transform: rotate(-1.5deg); margin: 10px -20px 0; overflow: hidden; white-space: nowrap;
+}
+.marquee-track { display: inline-flex; animation: scroll 22s linear infinite; }
+.marquee span { font-family: var(--font-display); font-size: 22px; padding: 12px 22px; }
+.marquee span:nth-child(even) { color: var(--pink); }
+@keyframes scroll { to { transform: translateX(-50%); } }
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* Apps */
+.apps-section { max-width: 1000px; margin: 0 auto; padding: 90px 24px 70px; }
+.section-title { margin-bottom: 40px; }
+.section-title h2 {
+  display: inline-block; margin: 0; padding: 4px 22px; font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(32px, 6vw, 48px); background: var(--pink); color: #fff;
+  border: var(--border); border-radius: 18px; box-shadow: 5px 5px 0 var(--ink); transform: rotate(-2deg);
+}
+.section-title p { margin: 18px 0 0; font-weight: 700; }
+.apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; perspective: 1000px; }
+.app-card {
+  --c: var(--pink);
+  position: relative; display: flex; flex-direction: column; padding: 26px;
+  background: var(--card); border: var(--border); border-radius: 28px; box-shadow: 6px 6px 0 var(--ink);
+  transition: box-shadow .2s, transform .15s ease-out; transform-style: preserve-3d;
+  opacity: 0; translate: 0 40px;
+}
+.app-card.show { opacity: 1; translate: 0 0; transition: opacity .6s, translate .6s cubic-bezier(.2, .9, .3, 1.2), box-shadow .2s, transform .15s ease-out; }
+.app-card:hover { box-shadow: 12px 12px 0 var(--c), 12px 12px 0 3px var(--ink); }
+.app-card:nth-child(6n+2) { --c: var(--blue); }
+.app-card:nth-child(6n+3) { --c: var(--mint); }
+.app-card:nth-child(6n+4) { --c: var(--orange); }
+.app-card:nth-child(6n+5) { --c: var(--purple); }
+.app-card:nth-child(6n+6) { --c: var(--yellow); }
+.app-icon {
+  width: 84px; height: 84px; margin-bottom: 20px; border-radius: 22px; border: var(--border);
+  background: var(--c); box-shadow: 4px 4px 0 var(--ink); display: flex; align-items: center; justify-content: center;
+  transition: transform .3s cubic-bezier(.34, 1.8, .5, 1);
+}
+.app-card:hover .app-icon { transform: rotate(-8deg) scale(1.12); }
+.app-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 19px; display: block; }
+.app-card h3 { margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 21px; line-height: 1.4; }
+.app-description { margin: 10px 0 24px; flex-grow: 1; font-size: 15px; }
+.app-button {
+  align-self: flex-start; display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; font-weight: 900; font-size: 14px; color: var(--ink);
+  background: var(--c); border: var(--border); border-radius: 999px; box-shadow: 3px 3px 0 var(--ink);
+  transition: transform .15s, box-shadow .15s;
+}
+.app-button i { font-style: normal; display: inline-block; transition: transform .2s; }
+.app-button:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+.app-button:hover i { transform: translateX(5px); }
+.app-button:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+.app-card > .app-button::after { content: ""; position: absolute; inset: 0; border-radius: 28px; } /* カード全体をクリック可能に */
 
-        body {
-            margin: 0;
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Helvetica Neue",
-                "Hiragino Kaku Gothic ProN",
-                "Hiragino Sans",
-                Arial,
-                sans-serif;
-            color: #1d1d1f;
-            background: #f5f5f7;
-            line-height: 1.7;
-        }
+/* About */
+.about { padding: 40px 20px 90px; }
+.about-box {
+  max-width: 720px; margin: 0 auto; padding: 44px 28px; text-align: center; position: relative;
+  background: var(--blue); color: #fff; border: var(--border); border-radius: 32px; box-shadow: 8px 8px 0 var(--ink);
+}
+.about h2 { margin: 0 0 12px; font-family: var(--font-display); font-weight: 400; font-size: 34px; }
+.about p { margin: 0; font-weight: 700; }
+.about-box::before, .about-box::after { position: absolute; font-size: 44px; animation: float 3.5s ease-in-out infinite; }
+.about-box::before { content: "✨"; top: -24px; left: 24px; }
+.about-box::after { content: "📱"; bottom: -24px; right: 28px; animation-delay: -1.5s; }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+footer { text-align: center; padding: 30px 20px 50px; font-weight: 900; font-size: 13px; }
 
-        /* =========================
-           Header
-        ========================= */
+/* Cursor (マウス操作の端末のみ) */
+.cursor-dot, .cursor-ring { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  body.has-cursor, body.has-cursor a { cursor: none; }
+  .cursor-dot, .cursor-ring {
+    display: block; position: fixed; top: 0; left: 0; z-index: 100; pointer-events: none; border-radius: 50%;
+  }
+  .cursor-dot { width: 10px; height: 10px; margin: -5px 0 0 -5px; background: var(--pink); border: 2px solid var(--ink); }
+  .cursor-ring {
+    width: 44px; height: 44px; margin: -22px 0 0 -22px; border: 3px solid var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 900; color: var(--ink);
+    transition: width .25s, height .25s, margin .25s, background .25s, opacity .2s;
+  }
+  .cursor-ring.link { width: 84px; height: 84px; margin: -42px 0 0 -42px; background: var(--yellow); }
+  .cursor-ring.down { width: 30px; height: 30px; margin: -15px 0 0 -15px; }
+}
+.spark {
+  position: fixed; z-index: 99; width: 10px; height: 10px; margin: -5px 0 0 -5px; pointer-events: none;
+  border: 2px solid var(--ink); border-radius: 3px; animation: spark .6s ease-out forwards;
+}
+@keyframes spark { to { transform: translate(var(--x), var(--y)) rotate(200deg) scale(.2); opacity: 0; } }
 
-        header {
-            background: rgba(255, 255, 255, 0.9);
-            border-bottom: 1px solid #e5e5e7;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-
-        .header-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        nav a {
-            font-size: 14px;
-            color: #666;
-            margin-left: 24px;
-        }
-
-        nav a:hover {
-            color: #007aff;
-        }
-
-        /* =========================
-           Hero
-        ========================= */
-
-        .hero {
-            background: #ffffff;
-            text-align: center;
-            padding: 90px 20px 80px;
-        }
-
-        .hero h1 {
-            margin: 0;
-            font-size: clamp(42px, 7vw, 72px);
-            line-height: 1.1;
-            letter-spacing: -0.04em;
-        }
-
-        .hero p {
-            margin: 24px auto 0;
-            max-width: 600px;
-            font-size: 18px;
-            color: #6e6e73;
-        }
-
-        /* =========================
-           Apps
-        ========================= */
-
-        .apps-section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 80px 24px;
-        }
-
-        .section-title {
-            margin-bottom: 36px;
-        }
-
-        .section-title h2 {
-            margin: 0;
-            font-size: 32px;
-            letter-spacing: -0.03em;
-        }
-
-        .section-title p {
-            margin: 8px 0 0;
-            color: #6e6e73;
-        }
-
-        .apps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .app-card {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 28px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            transition:
-                transform 0.2s ease,
-                box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.09);
-        }
-
-        .app-icon {
-            width: 76px;
-            height: 76px;
-            border-radius: 18px;
-            background: #f0f0f2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 36px;
-            margin-bottom: 22px;
-        }
-
-        .app-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 18px;
-        }
-        
-        .app-card h3 {
-            margin: 0;
-            font-size: 22px;
-            letter-spacing: -0.02em;
-        }
-
-        .app-description {
-            color: #6e6e73;
-            margin: 10px 0 24px;
-            flex-grow: 1;
-        }
-
-        .app-button {
-            display: inline-block;
-            text-align: center;
-            background: #007aff;
-            color: #ffffff;
-            padding: 11px 18px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background 0.2s ease;
-        }
-
-        .app-button:hover {
-            background: #0066d6;
-        }
-
-        /* =========================
-           About
-        ========================= */
-
-        .about {
-            background: #ffffff;
-            padding: 70px 24px;
-            text-align: center;
-        }
-
-        .about h2 {
-            margin: 0 0 12px;
-            font-size: 30px;
-        }
-
-        .about p {
-            max-width: 600px;
-            margin: 0 auto;
-            color: #6e6e73;
-        }
-
-        /* =========================
-           Footer
-        ========================= */
-
-        footer {
-            text-align: center;
-            padding: 32px 20px;
-            color: #86868b;
-            font-size: 13px;
-        }
-
-        /* =========================
-           Tablet
-        ========================= */
-
-        @media (max-width: 800px) {
-            .apps {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* =========================
-           Smartphone
-        ========================= */
-
-        @media (max-width: 560px) {
-            .header-inner {
-                padding: 14px 18px;
-            }
-
-            nav a {
-                margin-left: 14px;
-                font-size: 13px;
-            }
-
-            .hero {
-                padding: 70px 20px 65px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .apps-section {
-                padding: 60px 18px;
-            }
-
-            .apps {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-
-            .app-card {
-                padding: 24px;
-            }
-
-            .about {
-                padding: 60px 20px;
-            }
-        }
-    </style>
+@media (max-width: 800px) { .apps { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .apps { grid-template-columns: 1fr; gap: 24px; }
+  .hero { padding: 64px 16px 56px; }
+  .apps-section { padding: 70px 18px 50px; }
+  nav a { padding: 6px 12px; }
+  .sticker.hide-sm { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  .app-card { opacity: 1; translate: 0 0; }
+}
+</style>
 </head>
-
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="header-inner">
-
-            <a href="#" class="logo">
-                Ren's Apps
-            </a>
-
-            <nav>
-                <a href="#apps">Apps</a>
-                <a href="#about">About</a>
-            </nav>
-
-        </div>
-    </header>
-
-
-    <!-- Hero -->
-    <section class="hero">
-
-        <h1>Ren's Apps</h1>
-
-        <p>
-            日常をちょっと便利に、楽しくする<br>
-            iOSアプリを開発しています。
-        </p>
-
-    </section>
-
-
-    <!-- Apps -->
-    <main id="apps" class="apps-section">
-
-        <div class="section-title">
-
-            <h2>Apps</h2>
-
-            <p>
-                開発・公開しているiOSアプリ
-            </p>
-
-        </div>
-
-
-        <div class="apps">
-
-
-            <!-- 旭川グルメ -->
-            <article class="app-card">
-
-                <div class="app-icon">
-                    <img src="app-icon-asahikawa.png" alt="旭川グルメ">
-                </div>
-
-                <h3>
-                    旭川グルメ
-                </h3>
-
-                <p class="app-description">
-                    旭川の飲食店を探したり、行きたいお店を見つけたりできるグルメアプリです。
-                </p>
-
-                <a
-                    class="app-button"
-                    href="asahikawa-gourmet/"
-                >
-                    アプリ紹介 →
-                </a>
-
-            </article>
-
-
-            <!-- NISA -->
-            <article class="app-card">
-
-                <div class="app-icon">
-                    <img src="app-icon-nisa.png" alt="NISA積立シミュレーション">
-                </div>
-
-                <h3>
-                    NISA積立シミュレーション
-                </h3>
-
-                <p class="app-description">
-                    毎月の積立額・年利・運用期間から、資産の推移をシミュレーションできるアプリです。
-                </p>
-
-                <a
-                    class="app-button"
-                    href="nisa/"
-                >
-                    アプリ紹介 →
-                </a>
-
-            </article>
-
-             <!-- シンプルな英単語クイズ -->
-            <article class="app-card">
-
-                <div class="app-icon">
-                    <img src="app-icon-english.png" alt="シンプルな英単語クイズ">
-                </div>
-
-                <h3>
-                    シンプルな英単語クイズ
-                </h3>
-
-                <p class="app-description">
-                    英和、和英、かるたで英単語を学ぶことができるアプリです。
-                </p>
-
-                <a
-                    class="app-button"
-                    href="simple-english-quiz/"
-                >
-                    アプリ紹介 →
-                </a>
-
-            </article>
-
-            <!-- シェアリリック -->
-            <article class="app-card">
-
-                <div class="app-icon">
-                    <img src="app-icon-lyric.png" alt="シェアリリック">
-                </div>
-
-                <h3>
-                    シェアリリック
-                </h3>
-
-                <p class="app-description">
-                    お気に入りの歌詞をみんなに共有できるSNSです。
-                </p>
-
-                <a
-                    class="app-button"
-                    href="share-lyric/"
-                >
-                    アプリ紹介 →
-                </a>
-
-            </article>
-
-            <!-- ルーティン予定帳 -->
-            <article class="app-card">
-
-                <div class="app-icon">
-                    <img src="app-icon-routine.png" alt="ルーティン予定帳">
-                </div>
-
-                <h3>
-                    ルーティン予定帳
-                </h3>
-
-                <p class="app-description">
-                    日付や曜日で予定を管理できるアプリです。
-                </p>
-
-                <a
-                    class="app-button"
-                    href="routine/"
-                >
-                    アプリ紹介 →
-                </a>
-
-            </article>
-
-            <!-- 名言フィード -->
-            <article class="app-card">
-
-                <div class="app-icon">
-                    <img src="app-icon-quote.png" alt="名言フィード">
-                </div>
-
-                <h3>
-                    名言フィード
-                </h3>
-
-                <p class="app-description">
-                    偉人・アニメ・マンガなどの心に響く言葉を楽しめる名言アプリです。
-                </p>
-
-                <a
-                    class="app-button"
-                    href="quote/"
-                >
-                    アプリ紹介 →
-                </a>
-
-            </article>
-
-
-        </div>
-
-    </main>
-
-
-    <!-- About -->
-    <section id="about" class="about">
-
-        <h2>About</h2>
-
-        <p>
-            Ren's Appsでは、
-            iPhone・iPad向けのアプリを
-            個人で開発しています。
-        </p>
-
-    </section>
-
-
-    <!-- Footer -->
-    <footer>
-
-        © 2026 Ren's Apps
-
-    </footer>
-
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">Ren's<span>Apps</span></a>
+    <nav>
+      <a href="#apps">Apps</a>
+      <a href="#about">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="sticker" style="top:14%; left:8%; --d:0s"><span data-depth="24">🍜</span></div>
+  <div class="sticker" style="top:18%; right:9%; --d:-1s"><span data-depth="-30">💰</span></div>
+  <div class="sticker hide-sm" style="bottom:12%; left:14%; --d:-2s"><span data-depth="-18">🎵</span></div>
+  <div class="sticker hide-sm" style="bottom:16%; right:13%; --d:-3s"><span data-depth="20">📅</span></div>
+
+  <h1 id="title" aria-label="Ren's Apps"></h1>
+  <p>日常をちょっと便利に、楽しくする<br>iOSアプリを開発しています。</p>
+  <div class="badge">📱 iPhone・iPad対応</div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>旭川グルメ</span><span>NISA積立シミュレーション</span><span>シンプルな英単語クイズ</span><span>シェアリリック</span><span>ルーティン予定帳</span><span>名言フィード</span>
+    <span>旭川グルメ</span><span>NISA積立シミュレーション</span><span>シンプルな英単語クイズ</span><span>シェアリリック</span><span>ルーティン予定帳</span><span>名言フィード</span>
+  </div>
+</div>
+
+<main id="apps" class="apps-section">
+  <div class="section-title">
+    <h2>Apps</h2>
+    <p>開発・公開しているiOSアプリ</p>
+  </div>
+
+  <div class="apps">
+
+    <article class="app-card">
+      <div class="app-icon"><img src="app-icon-asahikawa.png" alt="旭川グルメ"></div>
+      <h3>旭川グルメ</h3>
+      <p class="app-description">旭川の飲食店を探したり、行きたいお店を見つけたりできるグルメアプリです。</p>
+      <a class="app-button" href="asahikawa-gourmet/">アプリ紹介 <i>→</i></a>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon"><img src="app-icon-nisa.png" alt="NISA積立シミュレーション"></div>
+      <h3>NISA積立シミュレーション</h3>
+      <p class="app-description">毎月の積立額・年利・運用期間から、資産の推移をシミュレーションできるアプリです。</p>
+      <a class="app-button" href="nisa/">アプリ紹介 <i>→</i></a>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon"><img src="app-icon-english.png" alt="シンプルな英単語クイズ"></div>
+      <h3>シンプルな英単語クイズ</h3>
+      <p class="app-description">英和、和英、かるたで英単語を学ぶことができるアプリです。</p>
+      <a class="app-button" href="simple-english-quiz/">アプリ紹介 <i>→</i></a>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon"><img src="app-icon-lyric.png" alt="シェアリリック"></div>
+      <h3>シェアリリック</h3>
+      <p class="app-description">お気に入りの歌詞をみんなに共有できるSNSです。</p>
+      <a class="app-button" href="share-lyric/">アプリ紹介 <i>→</i></a>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon"><img src="app-icon-routine.png" alt="ルーティン予定帳"></div>
+      <h3>ルーティン予定帳</h3>
+      <p class="app-description">日付や曜日で予定を管理できるアプリです。</p>
+      <a class="app-button" href="routine/">アプリ紹介 <i>→</i></a>
+    </article>
+
+    <article class="app-card">
+      <div class="app-icon"><img src="app-icon-quote.png" alt="名言フィード"></div>
+      <h3>名言フィード</h3>
+      <p class="app-description">偉人・アニメ・マンガなどの心に響く言葉を楽しめる名言アプリです。</p>
+      <a class="app-button" href="quote/">アプリ紹介 <i>→</i></a>
+    </article>
+
+  </div>
+</main>
+
+<section id="about" class="about">
+  <div class="about-box">
+    <h2>About</h2>
+    <p>Ren's Appsでは、iPhone・iPad向けのアプリを個人で開発しています。</p>
+  </div>
+</section>
+
+<footer>© 2026 Ren's Apps</footer>
+
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // タイトルを1文字ずつ分割してポップイン
+  var colors = ['var(--pink)', 'var(--blue)', 'var(--mint)', 'var(--orange)', 'var(--purple)', 'var(--yellow)'];
+  var title = document.getElementById('title');
+  "Ren's Apps".split('').forEach(function (c, i) {
+    var s = document.createElement('span');
+    s.className = 'ch';
+    s.setAttribute('aria-hidden', 'true');
+    s.style.setProperty('--i', i);
+    s.style.setProperty('--c', colors[i % colors.length]);
+    s.innerHTML = c === ' ' ? '&nbsp;' : c;
+    title.appendChild(s);
+  });
+
+  // カードのスクロール出現
+  var cards = document.querySelectorAll('.app-card');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        var idx = Array.prototype.indexOf.call(cards, e.target) % 3;
+        e.target.style.transitionDelay = (idx * 90) + 'ms';
+        e.target.classList.add('show');
+        io.unobserve(e.target);
+        setTimeout(function () { e.target.style.transitionDelay = '0ms'; }, 900);
+      }
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(function (c) { io.observe(c); });
+
+  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+  // カスタムカーソル
+  var dot = document.querySelector('.cursor-dot');
+  var ring = document.querySelector('.cursor-ring');
+  var mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my;
+  document.body.classList.add('has-cursor');
+
+  addEventListener('mousemove', function (e) {
+    mx = e.clientX; my = e.clientY;
+    dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+    var t = e.target.closest ? e.target.closest('a') : null;
+    ring.classList.toggle('link', !!t);
+    ring.textContent = t && t.closest('.app-card') ? 'OPEN' : '';
+    // ステッカーの視差
+    if (!reduce) {
+      var px = (mx / innerWidth - .5), py = (my / innerHeight - .5);
+      document.querySelectorAll('.sticker > span').forEach(function (s) {
+        var d = +s.dataset.depth;
+        s.style.transform = 'translate(' + (px * d) + 'px,' + (py * d) + 'px)';
+      });
+    }
+  });
+  (function loop() {
+    rx += (mx - rx) * .18; ry += (my - ry) * .18;
+    ring.style.transform = 'translate(' + rx + 'px,' + ry + 'px)';
+    requestAnimationFrame(loop);
+  })();
+  document.addEventListener('mouseleave', function () { ring.style.opacity = 0; dot.style.opacity = 0; });
+  document.addEventListener('mouseenter', function () { ring.style.opacity = 1; dot.style.opacity = 1; });
+
+  // クリック時のパーティクル
+  addEventListener('mousedown', function (e) {
+    ring.classList.add('down');
+    if (reduce) return;
+    for (var i = 0; i < 10; i++) {
+      var s = document.createElement('div');
+      var a = Math.PI * 2 * i / 10, d = 40 + Math.random() * 40;
+      s.className = 'spark';
+      s.style.left = e.clientX + 'px'; s.style.top = e.clientY + 'px';
+      s.style.background = colors[i % colors.length];
+      s.style.setProperty('--x', Math.cos(a) * d + 'px');
+      s.style.setProperty('--y', Math.sin(a) * d + 'px');
+      document.body.appendChild(s);
+      setTimeout(function (el) { el.remove(); }.bind(null, s), 650);
+    }
+  });
+  addEventListener('mouseup', function () { ring.classList.remove('down'); });
+
+  // カードの3Dチルト
+  if (!reduce) cards.forEach(function (c) {
+    c.addEventListener('mousemove', function (e) {
+      var r = c.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      c.style.transform = 'rotateY(' + (x * 8) + 'deg) rotateX(' + (-y * 8) + 'deg) translateY(-6px)';
+    });
+    c.addEventListener('mouseleave', function () { c.style.transform = ''; });
+  });
+})();
+</script>
 </body>
 </html>
