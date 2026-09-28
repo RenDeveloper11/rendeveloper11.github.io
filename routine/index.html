@@ -30,13 +30,63 @@
             line-height: 1.7;
         }
 
+        a {
+            color: inherit;
+        }
+
         .container {
             width: min(1000px, calc(100% - 40px));
             margin: 0 auto;
         }
 
+        /* Header */
+
         header {
-            padding: 80px 0 60px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #eee;
+        }
+
+        .header-inner {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .site-title {
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            font-size: 14px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        .nav a:hover {
+            color: #111;
+        }
+
+        .app-list {
+            font-weight: 600;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 80px 0 70px;
             text-align: center;
             background: white;
         }
@@ -61,25 +111,39 @@
 
         .lead {
             margin: 18px auto 0;
-            max-width: 650px;
+            max-width: 680px;
             font-size: 17px;
             color: #666;
         }
 
-        .hero {
+        .app-store-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 13px 26px;
+            border-radius: 999px;
+            background: #111;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .app-store-button:hover {
+            opacity: 0.8;
+        }
+
+        /* Features */
+
+        .features-section {
             padding: 70px 0;
+        }
+
+        .features-section h2,
+        .screenshots h2 {
+            margin: 0;
             text-align: center;
-        }
-
-        .hero h2 {
-            margin: 0 0 16px;
             font-size: 28px;
-        }
-
-        .hero p {
-            max-width: 680px;
-            margin: 0 auto;
-            color: #666;
         }
 
         .features {
@@ -97,10 +161,10 @@
         }
 
         .feature-number {
+            margin-bottom: 8px;
             font-size: 14px;
             font-weight: 700;
             color: #777;
-            margin-bottom: 8px;
         }
 
         .feature h3 {
@@ -114,15 +178,11 @@
             color: #666;
         }
 
+        /* Screenshots */
+
         .screenshots {
             padding: 70px 0;
             background: white;
-        }
-
-        .screenshots h2 {
-            margin: 0;
-            text-align: center;
-            font-size: 28px;
         }
 
         .screenshots-grid {
@@ -146,6 +206,8 @@
             height: auto;
         }
 
+        /* CTA */
+
         .cta {
             padding: 80px 0;
             text-align: center;
@@ -157,51 +219,51 @@
         }
 
         .cta p {
-            margin: 0 0 28px;
+            margin: 0;
             color: #666;
         }
 
-        .app-store-button {
-            display: inline-block;
-            padding: 14px 28px;
-            border-radius: 999px;
-            background: #111;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
-
-        .app-store-button:hover {
-            opacity: 0.8;
-        }
+        /* Footer */
 
         footer {
             padding: 30px 0;
             text-align: center;
             font-size: 13px;
             color: #888;
+            background: white;
         }
+
+        /* Mobile */
 
         @media (max-width: 700px) {
             .container {
                 width: min(100% - 28px, 500px);
             }
 
-            header {
-                padding: 60px 0 45px;
+            .header-inner {
+                height: 58px;
+            }
+
+            .site-title {
+                font-size: 15px;
+            }
+
+            .nav {
+                gap: 12px;
+                font-size: 12px;
             }
 
             .hero {
+                padding: 60px 0 55px;
+            }
+
+            .features-section,
+            .screenshots {
                 padding: 55px 0;
             }
 
             .features {
                 grid-template-columns: 1fr;
-            }
-
-            .screenshots {
-                padding: 55px 0;
             }
 
             .screenshots-grid {
@@ -219,7 +281,30 @@
 
 <body>
 
+<!-- Header -->
 <header>
+    <div class="container header-inner">
+
+        <a class="site-title" href="../">
+            RenDeveloper11
+        </a>
+
+        <nav class="nav">
+            <a class="app-list" href="../">
+                アプリ一覧
+            </a>
+
+            <a href="YOUR_APP_STORE_URL" target="_blank" rel="noopener noreferrer">
+                App Store
+            </a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- Hero -->
+<section class="hero">
     <div class="container">
 
         <div class="app-icon">
@@ -232,20 +317,24 @@
             日付や曜日に合わせて、ルーティンの予定をシンプルに管理。
         </p>
 
+        <a
+            class="app-store-button"
+            href="https://apps.apple.com/jp/app/%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E4%BA%88%E5%AE%9A%E5%B8%B3/id6470334432"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            App Storeで見る
+        </a>
+
     </div>
-</header>
+</section>
 
 
-<section class="hero">
+<!-- Features -->
+<section class="features-section">
     <div class="container">
 
-        <h2>毎日の予定を、もっとシンプルに。</h2>
-
-        <p>
-            「ルーティン予定帳」は、日付ベース・曜日ベースで
-            ルーティンの予定を管理できるiPhoneアプリです。
-            繰り返したい予定を整理して、毎日の行動をわかりやすく管理できます。
-        </p>
+        <h2>シンプルに予定を管理</h2>
 
         <div class="features">
 
@@ -254,7 +343,7 @@
                 <h3>日付で管理</h3>
                 <p>
                     特定の日に行う予定を登録して、
-                    日付ごとのルーティンを確認できます。
+                    日付ごとのルーティンを管理できます。
                 </p>
             </div>
 
@@ -262,8 +351,8 @@
                 <div class="feature-number">02</div>
                 <h3>曜日で管理</h3>
                 <p>
-                    月曜日はこれ、金曜日はこれ。
-                    曜日ごとのルーティンもシンプルに管理できます。
+                    曜日ごとに繰り返す予定を登録して、
+                    毎週のルーティンを管理できます。
                 </p>
             </div>
 
@@ -271,8 +360,8 @@
                 <div class="feature-number">03</div>
                 <h3>予定をまとめて確認</h3>
                 <p>
-                    その日にやることをまとめて確認でき、
-                    日々のルーティンを整理できます。
+                    その日に行うルーティンをまとめて確認。
+                    日々の予定をわかりやすく整理できます。
                 </p>
             </div>
 
@@ -282,6 +371,7 @@
 </section>
 
 
+<!-- Screenshots -->
 <section class="screenshots">
     <div class="container">
 
@@ -309,6 +399,7 @@
 </section>
 
 
+<!-- CTA -->
 <section class="cta">
     <div class="container">
 
@@ -331,6 +422,7 @@
 </section>
 
 
+<!-- Footer -->
 <footer>
     <div class="container">
         © 2026 RenDeveloper11
