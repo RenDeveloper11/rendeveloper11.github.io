@@ -1,1 +1,366 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="予定タイマーの紹介ページ。予定に合わせた時間管理をサポートするアプリです。">
+  <title>予定タイマー | Ren's Apps</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: #202124;
+      background: #f7f8fa;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+        "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid #e8e8e8;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 750;
+      letter-spacing: -0.5px;
+    }
+
+    .back-link {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 84px 24px 76px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .app-label {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 5px 13px;
+      color: #2563eb;
+      background: #eff6ff;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    h1 {
+      margin: 0 0 20px;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.3;
+      letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .app-store-button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 28px;
+      color: #fff;
+      background: #202124;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 650;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .app-store-button:hover {
+      background: #3a3b3d;
+      transform: translateY(-2px);
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 76px 24px;
+    }
+
+    .section-heading {
+      margin: 0 0 12px;
+      text-align: center;
+      font-size: 28px;
+      letter-spacing: -0.5px;
+    }
+
+    .section-description {
+      margin: 0 auto 36px;
+      color: #737373;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      padding: 28px 24px;
+      background: #fff;
+      border: 1px solid #eceef1;
+      border-radius: 18px;
+    }
+
+    .feature-number {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: #2563eb;
+      font-size: 13px;
+      font-weight: 750;
+      letter-spacing: 1px;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: #686868;
+      font-size: 14px;
+    }
+
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      gap: 20px;
+    }
+
+    .screenshot-card {
+      padding: 12px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid #eceef1;
+      border-radius: 20px;
+    }
+
+    .screenshot-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .cta {
+      padding: 68px 24px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin: 0 0 14px;
+      font-size: 28px;
+    }
+
+    .cta p {
+      margin: 0 0 26px;
+      color: #686868;
+      font-size: 15px;
+    }
+
+    footer {
+      padding: 28px 24px;
+      color: #777;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+      .features,
+      .screenshots {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .header-inner {
+        padding: 14px 18px;
+      }
+
+      .hero {
+        padding: 64px 20px 58px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .features,
+      .screenshots {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        padding: 24px;
+      }
+
+      .screenshot-card {
+        max-width: 380px;
+        margin: 0 auto;
+      }
+
+      .section-heading,
+      .cta h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="../" class="logo">Ren's Apps</a>
+      <a href="../" class="back-link">アプリ一覧</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="app-label">TIME MANAGEMENT</span>
+        <h1>予定に合わせて、<br>時間を管理する。</h1>
+        <p class="hero-description">
+          予定タイマーで、日々の予定と時間をシンプルに管理。
+          時間を意識した行動をサポートするアプリです。
+        </p>
+        <a
+          class="app-store-button"
+          href="https://apps.apple.com/jp/app/%E4%BA%88%E5%AE%9A%E3%82%BF%E3%82%A4%E3%83%9E%E3%83%BC/id6823563523"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          App Storeで見る
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">予定タイマーの特徴</h2>
+      <p class="section-description">
+        日々の時間管理を、もっと分かりやすく。
+      </p>
+
+      <div class="features">
+        <article class="feature-card">
+          <span class="feature-number">FEATURE 01</span>
+          <h3>予定と時間を管理</h3>
+          <p>
+            予定に合わせて時間を意識し、日々の行動を整理するための機能。
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-number">FEATURE 02</span>
+          <h3>時間を意識した行動</h3>
+          <p>
+            タイマーを活用して、予定に沿った行動や時間の使い方をサポート。
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-number">FEATURE 03</span>
+          <h3>シンプルな時間管理</h3>
+          <p>
+            日々の予定を確認しながら、時間管理を手軽に行えるアプリです。
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-heading">アプリ画面</h2>
+      <p class="section-description">
+        予定タイマーの画面をご紹介します。
+      </p>
+
+      <div class="screenshots">
+        <div class="screenshot-card">
+          <img src="screenshot1.png" alt="予定タイマーのスクリーンショット1">
+        </div>
+
+        <div class="screenshot-card">
+          <img src="screenshot2.png" alt="予定タイマーのスクリーンショット2">
+        </div>
+
+        <div class="screenshot-card">
+          <img src="screenshot3.png" alt="予定タイマーのスクリーンショット3">
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <h2>予定タイマーを使ってみる</h2>
+      <p>
+        App Storeからアプリをチェックできます。
+      </p>
+      <a
+        class="app-store-button"
+        href="https://apps.apple.com/jp/app/%E4%BA%88%E5%AE%9A%E3%82%BF%E3%82%A4%E3%83%9E%E3%83%BC/id6823563523"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        App Storeを開く
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Ren's Apps</p>
+  </footer>
+</body>
+</html>
+
